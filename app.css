@@ -1,0 +1,543 @@
+:root {
+	--focus-ring: #005bd3;
+
+	--bg_color: #f1f1f1;
+
+	--border-size_sm: 1px;
+	--border-size_md: 2px;
+
+	--font_dark: #303030; /* font for notification drop down items*/
+	--font_light: #e3e3e3;
+
+	--notification_font_light: #e3e3e3;
+	--notification_bg_color: #303030;
+	--notification_hover_bg_color: #616161;
+	--notification_pressed_bg_color: #656266;
+	--notification-box-shadow: 0 4px 8px 0 #0000000d;
+	--notification_focused_box-shadow: 0 0 0 1px #000000;
+	--notification_green_color: #36fba1;
+
+	--search_bar_bg_color: #303030;
+	--search_bar_border_color: #616161;
+	--search_bar_hover_border_color: #e1e1e1;
+	--search_bar_pressed_border_color: #ffffff;
+	--search_bar_pressed_text_color: #ffffff;
+	--search_bar_text_size: 13px;
+	--search_bar_line_height: 18.2px;
+	--search_bar_placeholder_text_color: #b5b5b5;
+
+	--dropdown_hover_bg_color: #f1f1f1;
+	--dropdown_pressed_bg_color: #f0f0f0;
+
+	--nav_bg_color: #1a1a1a;
+	--nav_height: 56px;
+	--nav_width: 1440px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Inter", sans-serif;
+	background-color: var(--bg_color);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+a,
+button {
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+button {
+	outline: none;
+	border: none;
+	padding: 0;
+	background-color: transparent;
+}
+
+a:focus-visible {
+	padding: 2px;
+	border: 2px solid white;
+	outline: none;
+	border-radius: 8px;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+/* Navigation */
+
+nav {
+	height: var(--nav_height);
+	max-width: var(--nav_width);
+	background-color: var(--nav_bg_color);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 16px;
+	gap: 5px;
+	position: relative;
+}
+
+nav a {
+	display: inline-block;
+	width: fit-content;
+	height: fit-content;
+}
+
+nav a .mobile_visible {
+	display: none;
+}
+
+nav a .desktop_visible {
+	width: 104.87px;
+	height: 30px;
+}
+
+nav .search {
+	cursor: pointer;
+	width: 480px;
+	height: 32px;
+	border: 1px solid var(--search_bar_border_color);
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	border-radius: 8px;
+	padding: 8px;
+	background-color: var(--search_bar_bg_color);
+	transition: border-color 0.2s ease-in;
+	color: var(--search_bar_pressed_text_color);
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 18.2px;
+}
+
+nav .search:hover {
+	border-color: var(--search_bar_hover_border_color);
+}
+
+nav .search:focus-visible {
+	border: var(--border-size_md) solid var(--search_bar_pressed_border_color);
+}
+/* nav .search:active {
+	border: var(--border-size_md) solid var(--search_bar_pressed_border_color);
+} */
+
+nav .search .search_icon {
+	width: 13px;
+	height: 13px;
+	fill: var(--search_bar_placeholder_text_color);
+}
+
+nav .search input {
+	width: 100%;
+	outline: none;
+	background-color: transparent;
+	border: none;
+	color: inherit;
+}
+
+nav .search input::placeholder {
+	color: var(--search_bar_placeholder_text_color);
+	width: 44px;
+	height: 18px;
+}
+
+/* user details */
+
+nav .user_details {
+	/* border: 1px solid red; */
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 182px;
+	height: 32px;
+}
+
+/* notification */
+nav .user_details .notification {
+	width: 32px;
+	height: 32px;
+	background-color: var(--notification_bg_color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	transition: background-color 0.2s ease-in;
+}
+
+nav .user_details .notification:hover {
+	background-color: var(--notification_hover_bg_color);
+}
+
+nav .user_details button.notification:focus-visible,
+nav .user_details button.notification:focus {
+	border: var(--border-size_md) solid var(--focus-ring);
+}
+
+nav .user_details .notification .notification_icon {
+	width: 20px;
+	height: 20px;
+	fill: var(--search_bar_placeholder_text_color);
+}
+
+/* davii collection */
+nav .user_details .davii_collections {
+	width: 142px;
+	height: 32px;
+	background-color: var(--notification_bg_color);
+	color: var(--font_light);
+	font-weight: 500;
+	line-height: 15.6px;
+	font-size: 12px;
+	padding: 2px 2px 2px 8px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	border-radius: 8px;
+}
+
+nav .user_details button.davii_collections:focus-visible {
+	border: var(--border-size_md) solid var(--focus-ring);
+}
+
+nav .user_details .davii_collections span:nth-child(1) {
+	width: 96px;
+}
+
+nav .user_details .davii_collections span:nth-child(2) {
+	background-color: var(--notification_green_color);
+	width: 28px;
+	height: 28px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #00000066;
+	border-radius: 6px;
+}
+
+/* user details notification dropdown panel */
+nav .notification_dropdown_panel {
+	position: absolute;
+	padding: 16px;
+	top: 64px;
+	right: 16px;
+	color: black;
+	width: 383px;
+	height: 118px;
+	/* display: flex; */
+	flex-direction: column;
+	gap: 16px;
+	font-weight: 600;
+	border-radius: 14px;
+	background-color: white;
+	box-shadow: var(--notification-box-shadow);
+	display: none;
+}
+
+/* +++++++++++++show dropdown+++++++++++++++++++ */
+nav .notification_dropdown_panel.display_block {
+	display: flex;
+}
+
+nav .notification_dropdown_panel .header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+nav .notification_dropdown_panel .header span {
+	font-size: 14px;
+	color: #303030;
+	font-weight: 600;
+	line-height: 19.6px;
+	width: 41px;
+	height: 20px;
+}
+
+nav .notification_dropdown_panel .header .header_icons {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	width: 56px;
+	height: 20px;
+}
+
+nav .notification_dropdown_panel .header .header_icons button {
+	box-sizing: border-box;
+	/* padding: 3px; */
+	width: 20px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+nav .notification_dropdown_panel .header .header_icons button:focus-visible {
+	border: var(--border-size_md) solid var(--focus-ring);
+	border-radius: 4px;
+}
+
+nav .notification_dropdown_panel .header .header_icons button svg {
+	fill: #616161;
+	width: 14px;
+	height: 14px;
+}
+
+nav .notification_dropdown_panel .notification_info {
+	height: 50px;
+	font-size: 13px;
+	line-height: 18.2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #f1f1f1;
+	color: #616161;
+}
+
+/* davii_collection dropdown panel */
+nav .davii_collection_dropdown_panel {
+	/* border: 1px solid red; */
+	position: absolute;
+	top: 64px;
+	right: 16px;
+	color: black;
+	width: 320px;
+	height: 384px;
+	padding: 6px 0;
+	background-color: white;
+	border-radius: 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	box-shadow: var(--notification-box-shadow);
+	/* display: none; */
+	/* border: 1px solid red; */
+}
+
+hr {
+	border: 0;
+	margin: 0;
+	border-bottom: 0.75px solid #e1e1e1;
+}
+
+nav .davii_collection_dropdown_panel .panel_head {
+	width: 320px;
+	height: 72px;
+	padding: 0 6px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	/* border: 1px solid red; */
+}
+
+nav .davii_collection_dropdown_panel .panel_head_user_details {
+	width: 100%;
+	/* border: 1px solid green; */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 36px;
+	padding: 4px 12px 4px 8px;
+	background-color: #f1f1f1;
+	border-radius: 8px;
+}
+
+nav .davii_collection_dropdown_panel .panel_head_user_details .user_name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	width: 141px;
+	height: 28px;
+	/* border: 1px solid blue; */
+}
+
+nav .davii_collection_dropdown_panel .panel_head_user_details .user_name span {
+	font-weight: 600;
+	font-size: 13px;
+}
+
+nav
+	.davii_collection_dropdown_panel
+	.panel_head_user_details
+	.user_name
+	span:nth-child(2) {
+	width: 105px;
+	height: 18px;
+	display: flex;
+	align-items: center;
+}
+
+nav
+	.davii_collection_dropdown_panel
+	.panel_head_user_details
+	.user_name
+	span.davii_collection_DC {
+	font-weight: 500;
+	font-size: 10.5px;
+	color: #00000066;
+	background-color: var(--notification_green_color);
+	width: 28px;
+	height: 28px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5.25px;
+}
+
+nav .davii_collection_dropdown_panel .panel_head .all_stores {
+	width: 308px;
+	height: 32px;
+	display: flex;
+	gap: 8px;
+	padding: 6px;
+	padding-left: 8px;
+	font-weight: 400;
+	font-size: 13px;
+	color: #303030;
+	align-items: center;
+	border-radius: 8px;
+}
+
+nav .davii_collection_dropdown_panel .panel_head .all_stores svg {
+	width: 14px;
+	height: 14px;
+	fill: #303030;
+}
+
+/* panel middle */
+nav .davii_collection_dropdown_panel .panel_middle {
+	padding: 0 6px;
+	height: 166px;
+	width: 320px;
+}
+
+nav .davii_collection_dropdown_panel .panel_middle ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+nav .davii_collection_dropdown_panel .panel_middle ul li a {
+	height: 30px;
+	padding: 6px;
+	font-size: 13px;
+	color: #303030;
+	width: 308px;
+	font-weight: 400;
+	border-radius: 8px;
+	/* border: 1px solid red; */
+}
+
+/* nav .davii_collection_dropdown_panel .panel_middle ul li a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	line-height: 18px;
+} */
+
+/* panel bottom */
+nav .davii_collection_dropdown_panel .panel_bottom {
+	/* border: 1px solid green; */
+	padding: 0 6px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	height: 118px;
+	width: 320px;
+}
+
+nav .davii_collection_dropdown_panel .panel_bottom > a {
+	border-radius: 8px;
+	width: 308px;
+	/* border: 1px solid red; */
+}
+
+nav .davii_collection_dropdown_panel .panel_bottom .user_info {
+	/* border: 1px solid red; */
+	padding: 8px;
+	font-size: 13px;
+	height: 50px;
+}
+
+nav .davii_collection_dropdown_panel .panel_bottom .user_info .name {
+	color: #303030;
+	line-height: 18.2px;
+}
+
+nav .davii_collection_dropdown_panel .panel_bottom .user_info .email {
+	color: #616161;
+	font-size: 12px;
+	line-height: 15.6px;
+}
+
+nav .davii_collection_dropdown_panel .panel_bottom a.user_info ~ a {
+	padding: 6px;
+	font-size: 13px;
+	font-weight: 400;
+	font-size: 13px;
+	color: #303030;
+	line-height: 18.2px;
+	height: 30px;
+}
+
+nav #dc_dropdown a {
+	transition: background-color 0.3s ease-in;
+}
+
+nav #dc_dropdown a:hover {
+	background-color: var(--dropdown_hover_bg_color);
+}
+
+nav #dc_dropdown a:focus-visible {
+	border: var(--border-size_md) solid var(--focus-ring);
+}
+
+/* ======================== MEDIA QUERY ========================== */
+@media screen and (max-width: 600px) {
+	nav {
+		gap: 8px;
+	}
+
+	nav a .desktop_visible {
+		display: none;
+	}
+
+	nav a .mobile_visible {
+		display: block;
+		width: 32px;
+		height: 32px;
+	}
+
+	nav .user_details {
+		width: fit-content;
+	}
+
+	nav .user_details .davii_collections span:first-child {
+		display: none;
+	}
+
+	nav .user_details .davii_collections {
+		padding: 0;
+		width: fit-content;
+	}
+}
