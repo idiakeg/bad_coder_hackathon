@@ -185,6 +185,10 @@ nav .user_details .notification:hover {
 	background-color: var(--notification_hover_bg_color);
 }
 
+nav .user_details .notification:hover {
+	background-color: var(--notification_pressed_bg_color);
+}
+
 nav .user_details button.notification:focus-visible,
 nav .user_details button.notification:focus {
 	border: var(--border-size_md) solid var(--focus-ring);
@@ -200,24 +204,34 @@ nav .user_details .notification .notification_icon {
 nav .user_details .davii_collections {
 	width: 142px;
 	height: 32px;
+	display: flex;
+	align-items: center;
 	background-color: var(--notification_bg_color);
 	color: var(--font_light);
 	font-weight: 500;
-	line-height: 15.6px;
 	font-size: 12px;
 	padding: 2px 2px 2px 8px;
-	display: flex;
-	align-items: center;
 	gap: 8px;
 	border-radius: 8px;
+	transition: background-color 0.2s ease-in;
 }
 
+nav .user_details .davii_collections:hover {
+	background-color: var(--notification_hover_bg_color);
+}
+
+nav .user_details .davii_collections:active {
+	background-color: var(--notification_pressed_bg_color);
+}
+
+nav .user_details button.davii_collections:focus,
 nav .user_details button.davii_collections:focus-visible {
 	border: var(--border-size_md) solid var(--focus-ring);
 }
 
 nav .user_details .davii_collections span:nth-child(1) {
 	width: 96px;
+	text-align: left;
 }
 
 nav .user_details .davii_collections span:nth-child(2) {
@@ -233,6 +247,7 @@ nav .user_details .davii_collections span:nth-child(2) {
 
 /* user details notification dropdown panel */
 nav .notification_dropdown_panel {
+	z-index: 34;
 	position: absolute;
 	padding: 16px;
 	top: 64px;
@@ -312,6 +327,7 @@ nav .notification_dropdown_panel .notification_info {
 
 /* davii_collection dropdown panel */
 nav .davii_collection_dropdown_panel {
+	z-index: 34;
 	/* border: 1px solid red; */
 	position: absolute;
 	top: 64px;
@@ -322,12 +338,15 @@ nav .davii_collection_dropdown_panel {
 	padding: 6px 0;
 	background-color: white;
 	border-radius: 14px;
-	display: flex;
+	/* display: flex; */
 	flex-direction: column;
 	gap: 4px;
 	box-shadow: var(--notification-box-shadow);
-	/* display: none; */
-	/* border: 1px solid red; */
+	display: none;
+}
+
+nav .davii_collection_dropdown_panel.display_block {
+	display: flex;
 }
 
 hr {
@@ -343,12 +362,10 @@ nav .davii_collection_dropdown_panel .panel_head {
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
-	/* border: 1px solid red; */
 }
 
 nav .davii_collection_dropdown_panel .panel_head_user_details {
 	width: 100%;
-	/* border: 1px solid green; */
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -508,8 +525,10 @@ nav #dc_dropdown a:hover {
 	background-color: var(--dropdown_hover_bg_color);
 }
 
+nav #dc_dropdown a:focus,
 nav #dc_dropdown a:focus-visible {
 	border: var(--border-size_md) solid var(--focus-ring);
+	line-height: 14px;
 }
 
 /* ======================== MEDIA QUERY ========================== */
