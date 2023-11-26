@@ -32,6 +32,17 @@
 	--nav_bg_color: #1a1a1a;
 	--nav_height: 56px;
 	--nav_width: 1440px;
+
+	/* buttons */
+	--btn_padding: 6px 12px;
+	--btn_border_radius: 6px;
+	--btn_light_border_color: rgba(0, 0, 0, 0, 10);
+	--btn_light_bg_color: white;
+	--btn_light_hover_bg_color: #f7f7f7;
+	--btn_light_pressed_bg_color: #f7f7f7;
+	--btn_light_box_shadow: 0 -1px 0 0 #b5b5b5;
+	--btn_light_pressed_box_shadow: 0 2px 1.5px 0 #e2e2e2;
+	--btn_light_focused_box_shadow: 0 0 0 3px #005bd3;
 }
 
 body {
@@ -60,6 +71,7 @@ button {
 	border: none;
 	padding: 0;
 	background-color: transparent;
+	transition: all 0.2s ease-in;
 }
 
 a:focus-visible {
@@ -532,9 +544,96 @@ nav #dc_dropdown a:hover {
 
 nav #dc_dropdown a:focus,
 nav #dc_dropdown a:focus-visible {
+	border: var(--border-size_md) solid var(--focus-ring);
+	line-height: 14px;
+}
+
+/* ===========================Main============================== */
+main {
+	min-height: calc(100dvh - var(--navigation_height));
+	padding-top: 32px;
+	display: flex;
+	justify-content: center;
+}
+
+main .main_container {
+	border: 1px solid red;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	/* max-width: 800px; */
+	width: 800px;
+	height: 431px;
+}
+
+/* plan */
+main .main_container .plan {
+	width: 800px;
+	height: 56px;
+	background-color: #1a1a1a;
+	color: var(--font_light);
+	display: flex;
+	padding: 12px 8px 12px 16px;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 13px;
+	line-height: 18.2px;
+	border-radius: 8px;
+	font-weight: 500;
+}
+
+/* hide the plan on cancel button click */
+main .main_container .plan.hidden {
+	display: none;
+}
+
+main .main_container .plan .plan_buttons {
+	/* border: 1px solid green; */
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 139px;
+}
+
+main .main_container .plan .plan_buttons a {
+	width: 99px;
+	height: 28px;
+	padding: var(--btn_padding);
+	color: #323232;
+	background-color: var(--btn_light_bg_color);
+	border-radius: var(--btn_border_radius);
+	border: 1px solid var(--btn_light_border_color);
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 16px;
+}
+
+main .main_container .plan .plan_buttons a:hover,
+main .main_container .plan .plan_buttons a:active {
+	background-color: var(--btn_light_hover_bg_color);
+}
+
+main .main_container .plan .plan_buttons a:active {
+	box-shadow: var(--btn_light_pressed_box_shadow);
+}
+
+main .main_container .plan .plan_buttons button.cancel_icon {
+	width: 32px;
+	height: 32px;
+	/* display: flex;
+	align-items: center;
+	justify-content: center; */
+	border-radius: var(--btn_border_radius);
+	fill: var(--font_light);
+}
+
+/* focus states for the dropdowns */
+main .main_container .plan .plan_buttons a:focus,
+main .main_container .plan .plan_buttons button:focus,
+main .main_container .plan .plan_buttons button:focus-visible {
 	outline: var(--border-size_md) solid var(--focus-ring);
 	outline-offset: 1px;
-	line-height: 14px;
+	/* box-shadow: var(--btn_light_focused_box_shadow); */
 }
 
 /* ======================== MEDIA QUERY ========================== */
@@ -566,5 +665,9 @@ nav #dc_dropdown a:focus-visible {
 		width: fit-content;
 		height: fit-content;
 		border-radius: 6px;
+	}
+
+	nav .user_details .notification {
+		background-color: transparent;
 	}
 }

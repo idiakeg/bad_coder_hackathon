@@ -188,6 +188,15 @@ function app() {
 	}
 
 	dcTrigger.addEventListener("click", dcToggle);
+
+	// =================script to help cancel subscription===========
+	const cancelIcon = document.getElementById("cancel_icon");
+	const plan = document.getElementById("plan");
+	cancelIcon.addEventListener("click", function () {
+		plan.classList.toggle("hidden");
+	});
+
+	console.log(plan);
 }
 
 app();
