@@ -64,8 +64,8 @@ button {
 
 a:focus-visible {
 	padding: 2px;
-	border: 2px solid white;
-	outline: none;
+	outline: 2px solid white;
+	outline-offset: 1px;
 	border-radius: 8px;
 }
 
@@ -132,11 +132,13 @@ nav .search:hover {
 }
 
 nav .search:focus-visible {
-	border: var(--border-size_md) solid var(--search_bar_pressed_border_color);
+	outline: var(--border-size_md) solid var(--search_bar_pressed_border_color);
+	outline-offset: 1px;
 }
-/* nav .search:active {
-	border: var(--border-size_md) solid var(--search_bar_pressed_border_color);
-} */
+
+nav .search:active {
+	outline: var(--border-size_md) solid var(--search_bar_pressed_border_color);
+}
 
 nav .search .search_icon {
 	width: 13px;
@@ -191,7 +193,8 @@ nav .user_details .notification:hover {
 
 nav .user_details button.notification:focus-visible,
 nav .user_details button.notification:focus {
-	border: var(--border-size_md) solid var(--focus-ring);
+	outline: var(--border-size_md) solid var(--focus-ring);
+	outline-offset: 1px;
 }
 
 nav .user_details .notification .notification_icon {
@@ -226,7 +229,8 @@ nav .user_details .davii_collections:active {
 
 nav .user_details button.davii_collections:focus,
 nav .user_details button.davii_collections:focus-visible {
-	border: var(--border-size_md) solid var(--focus-ring);
+	outline: var(--border-size_md) solid var(--focus-ring);
+	outline-offset: 1px;
 }
 
 nav .user_details .davii_collections span:nth-child(1) {
@@ -304,7 +308,8 @@ nav .notification_dropdown_panel .header .header_icons button {
 }
 
 nav .notification_dropdown_panel .header .header_icons button:focus-visible {
-	border: var(--border-size_md) solid var(--focus-ring);
+	outline: var(--border-size_md) solid var(--focus-ring);
+	outline-offset: 1px;
 	border-radius: 4px;
 }
 
@@ -527,7 +532,8 @@ nav #dc_dropdown a:hover {
 
 nav #dc_dropdown a:focus,
 nav #dc_dropdown a:focus-visible {
-	border: var(--border-size_md) solid var(--focus-ring);
+	outline: var(--border-size_md) solid var(--focus-ring);
+	outline-offset: 1px;
 	line-height: 14px;
 }
 
@@ -558,5 +564,7 @@ nav #dc_dropdown a:focus-visible {
 	nav .user_details .davii_collections {
 		padding: 0;
 		width: fit-content;
+		height: fit-content;
+		border-radius: 6px;
 	}
 }
