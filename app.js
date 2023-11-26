@@ -200,11 +200,3 @@ function app() {
 }
 
 app();
-
-// const flag = dcTrigger.ariaExpanded === "true";
-// if (flag) {
-// 	dcTrigger.ariaExpanded = "false";
-// } else {
-// 	dcTrigger.ariaExpanded = "true";
-// }
-// console.log(dcTrigger.ariaExpanded);

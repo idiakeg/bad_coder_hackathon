@@ -67,7 +67,7 @@ a {
 }
 
 button {
-	outline: none;
+	outline: transparent; /* or none */
 	border: none;
 	padding: 0;
 	background-color: transparent;
@@ -557,13 +557,14 @@ main {
 }
 
 main .main_container {
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
 	/* max-width: 800px; */
 	width: 800px;
 	height: 431px;
+	border-radius: 18px;
 }
 
 /* plan */
@@ -627,10 +628,117 @@ main .main_container .plan .plan_buttons button.cancel_icon {
 	fill: var(--font_light);
 }
 
+/* setup guide */
+main .main_container .setup_guide {
+	width: 800px;
+	/* height: 431px; */
+	background-color: white;
+	border-radius: 18px;
+	padding: 8px;
+}
+
+main .main_container .setup_guide .setup_guide_header {
+	height: 90px;
+	padding: 8px;
+}
+
+main .main_container .setup_guide .head {
+	height: 74px;
+	display: flex;
+	justify-content: space-between;
+	color: #303030;
+}
+
+main .main_container .setup_guide .head .head_icon button {
+	border-radius: 6px;
+}
+
+main .main_container .setup_guide .head .head_icon button:hover {
+	background-color: var(--font_light);
+}
+
+main .main_container .setup_guide .head .head_icon button svg {
+	fill: #4a4a4a;
+}
+
+main .main_container .setup_guide .head .head_details {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	width: 376px;
+	height: 74px;
+}
+
+main .main_container .setup_guide .head .head_details div {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+main .main_container .setup_guide .head .head_details div .title {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 19.6px;
+}
+
+main .main_container .setup_guide .head .head_details div .info {
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 18.2px;
+}
+
+main .main_container .setup_guide .head .head_details .progress {
+	width: 168px;
+	font-size: 12px;
+	font-weight: 400;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+	line-height: 15.6px;
+}
+
+main .main_container .setup_guide .head .head_details .progress div {
+	display: flex;
+	flex-direction: row;
+}
+
+main
+	.main_container
+	.setup_guide
+	.head
+	.head_details
+	.progress
+	.progress_state {
+	width: 72px;
+	height: 4px;
+	border-radius: 28px;
+	overflow: hidden;
+	background-color: var(--font_light);
+	position: relative;
+}
+
+main
+	.main_container
+	.setup_guide
+	.head
+	.head_details
+	.progress
+	.progress_state
+	.progress_bar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20%;
+	height: 100%;
+	background-color: #1a1a1a;
+}
+
 /* focus states for the dropdowns */
 main .main_container .plan .plan_buttons a:focus,
 main .main_container .plan .plan_buttons button:focus,
-main .main_container .plan .plan_buttons button:focus-visible {
+main .main_container .plan .plan_buttons button:focus-visible,
+main .main_container .setup_guide .head .head_icon button:focus {
 	outline: var(--border-size_md) solid var(--focus-ring);
 	outline-offset: 1px;
 	/* box-shadow: var(--btn_light_focused_box_shadow); */
