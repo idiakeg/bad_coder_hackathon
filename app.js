@@ -196,7 +196,15 @@ function app() {
 		plan.classList.toggle("hidden");
 	});
 
-	console.log(plan);
+	// ==================script for onboarding control
+	const onBoardingControl = document.getElementById("onboarding_control");
+	const onBoardingControlIcons = onBoardingControl.querySelectorAll("svg");
+
+	onBoardingControl.addEventListener("click", function () {
+		onBoardingControlIcons.forEach((item) => {
+			item.classList.toggle("hidden");
+		});
+	});
 }
 
 app();

@@ -323,6 +323,7 @@
 				</div>
 				<!-- setup guide -->
 				<div class="setup_guide">
+					<!-- setup guide head -->
 					<div class="setup_guide_header">
 						<div class="head">
 							<div class="head_details">
@@ -341,7 +342,13 @@
 								</div>
 							</div>
 							<div class="head_icon">
-								<button>
+								<button
+									id="onboarding_control"
+									aria-haspopup="true"
+									aria-expanded="false"
+									aria-controls="onboarding_dropdown"
+								>
+									<!-- arrow up -->
 									<svg
 										class="arrow_up"
 										width="20"
@@ -356,10 +363,68 @@
 											fill="#4A4A4A"
 										/>
 									</svg>
+									<!-- arrow down -->
+									<svg
+										class="arrow_down hidden"
+										width="20"
+										height="20"
+										viewBox="0 0 20 20"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M5.71967 8.46967C6.01256 8.17678 6.48744 8.17678 6.78033 8.46967L10.25 11.9393L13.7197 8.46967C14.0126 8.17678 14.4874 8.17678 14.7803 8.46967C15.0732 8.76256 15.0732 9.23744 14.7803 9.53033L10.7803 13.5303C10.4874 13.8232 10.0126 13.8232 9.71967 13.5303L5.71967 9.53033C5.42678 9.23744 5.42678 8.76256 5.71967 8.46967Z"
+											fill="#4A4A4A"
+										/>
+									</svg>
 								</button>
 							</div>
 						</div>
 					</div>
+					<!-- setup guide body -->
+					<ul
+						aria-labelledby="onboarding_control"
+						role="menu"
+						id="onboarding_dropdown"
+						class="onboarding_dropdown"
+					>
+						<li class="onboarding_dropdown_items hidden active">
+							<div class="content">
+								<button role="menuitem" class="checkbox">
+									<!-- default spinner icon -->
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<circle
+											cx="12"
+											cy="12"
+											r="10"
+											stroke="#8A8A8A"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-dasharray="5 5"
+										/>
+									</svg>
+								</button>
+								<div class="main_content">
+									<div class="head">Customize your online store</div>
+									<div class="text">
+										Choose a theme and add your logo, colors, and images to
+										reflect your brand.
+										<a href="#">Learn more</a>
+									</div>
+									<button>Customize theme</button>
+								</div>
+							</div>
+							<div class="image">
+								<img src="./customise-store.png" alt="customise_store" />
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</main>
