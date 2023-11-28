@@ -213,6 +213,10 @@ function app() {
 	const checkboxButton = document.querySelectorAll("#checkbox");
 	const markAsDone = "done";
 	const hidden = "hidden";
+	// update the number of completed items
+	const progressBar = document.getElementById("progress_bar");
+	const amountDone = document.getElementById("amount_done");
+	let NumberOfCompleteditems = [];
 
 	function handleDone(
 		item,
@@ -229,6 +233,11 @@ function app() {
 			completedCheckbox.classList.remove(hidden);
 			// add the mark as done to the button after completion
 			item.classList.add(markAsDone);
+			NumberOfCompleteditems.push(item);
+			amountDone.textContent = NumberOfCompleteditems.length;
+			let progressWidth =
+				(NumberOfCompleteditems.length / checkboxButton.length) * 100;
+			progressBar.style.width = `${progressWidth}%`;
 
 			// send focus to the next checkbox on the list
 			if (indexNumber < checkboxButton.length) {
@@ -252,6 +261,11 @@ function app() {
 			notCompletedCheckbox.classList.remove(hidden);
 			// add the mark as done to the button after completion
 			item.classList.remove(markAsDone);
+			NumberOfCompleteditems.pop();
+			amountDone.textContent = NumberOfCompleteditems.length;
+			let progressWidth =
+				(NumberOfCompleteditems.length / checkboxButton.length) * 100;
+			progressBar.style.width = `${progressWidth}%`;
 		}, 500);
 	}
 
