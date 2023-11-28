@@ -213,10 +213,11 @@ function app() {
 	const checkboxButton = document.querySelectorAll("#checkbox");
 	const markAsDone = "done";
 	const hidden = "hidden";
-	// update the number of completed items
 	const progressBar = document.getElementById("progress_bar");
 	const amountDone = document.getElementById("amount_done");
 	let NumberOfCompleteditems = [];
+	const checkboxStatus = document.querySelectorAll("#aria_live");
+	console.log(checkboxStatus);
 
 	function handleDone(
 		item,
@@ -228,11 +229,13 @@ function app() {
 		const indexNumber = index + 1;
 		notCompletedCheckbox.classList.add(hidden);
 		loadingCheckbox.classList.remove(hidden);
+		checkboxStatus.item(index).ariaLabel = "Loading, please wait.";
 		setTimeout(() => {
 			loadingCheckbox.classList.add(hidden);
 			completedCheckbox.classList.remove(hidden);
-			// add the mark as done to the button after completion
+			item.ariaLabel = item.ariaLabel.replace("as done", "as not done");
 			item.classList.add(markAsDone);
+			checkboxStatus.item(index).ariaLabel = "Successful.";
 			NumberOfCompleteditems.push(item);
 			amountDone.textContent = NumberOfCompleteditems.length;
 			let progressWidth =
@@ -256,11 +259,13 @@ function app() {
 	) {
 		completedCheckbox.classList.add(hidden);
 		loadingCheckbox.classList.remove(hidden);
+		checkboxStatus.item(index).ariaLabel = "Loading, please wait.";
 		setTimeout(() => {
 			loadingCheckbox.classList.add(hidden);
 			notCompletedCheckbox.classList.remove(hidden);
-			// add the mark as done to the button after completion
+			item.ariaLabel = item.ariaLabel.replace("as not done", "as done");
 			item.classList.remove(markAsDone);
+			checkboxStatus.item(index).ariaLabel = "Successful.";
 			NumberOfCompleteditems.pop();
 			amountDone.textContent = NumberOfCompleteditems.length;
 			let progressWidth =
