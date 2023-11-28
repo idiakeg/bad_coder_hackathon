@@ -199,12 +199,16 @@ function app() {
 	// ==================script for onboarding control
 	const onBoardingControl = document.getElementById("onboarding_control");
 	const onBoardingControlIcons = onBoardingControl.querySelectorAll("svg");
+	const onBoardingDropdown = document.getElementById("onboarding_dropdown");
 
 	onBoardingControl.addEventListener("click", function () {
+		onBoardingDropdown.classList.toggle("hidden");
 		onBoardingControlIcons.forEach((item) => {
 			item.classList.toggle("hidden");
 		});
 	});
+
+	console.log(onBoardingDropdown);
 }
 
 app();

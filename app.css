@@ -709,9 +709,12 @@ main .main_container .setup_guide .head .head_details .progress {
 	line-height: 15.6px;
 }
 
-main .main_container .setup_guide .head .head_details .progress div {
+main .main_container .setup_guide .head .head_details .progress div.prog {
 	display: flex;
 	flex-direction: row;
+	width: 88px;
+	height: 16px;
+	gap: 0;
 }
 
 main
@@ -757,6 +760,10 @@ main .main_container .setup_guide .onboarding_dropdown {
 	list-style: none;
 }
 
+main .main_container .setup_guide .onboarding_dropdown.hidden {
+	display: none;
+}
+
 main
 	.main_container
 	.setup_guide
@@ -767,6 +774,7 @@ main
 	border-radius: 10px;
 	padding: 8px 8px 12px 8px;
 	display: flex;
+	align-items: flex-start;
 	gap: 96px;
 }
 
@@ -799,8 +807,9 @@ main
 	.setup_guide
 	.onboarding_dropdown
 	.onboarding_dropdown_items.hidden
-	.head
-	~ * {
+	.content
+	.main_content
+	div.helper {
 	display: none;
 }
 
@@ -842,6 +851,31 @@ main
 	.content
 	.checkbox {
 	align-self: flex-start;
+	border-radius: 6px;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.content
+	.checkbox:focus-visible {
+	outline: var(--border-size_md) solid var(--focus-ring);
+	outline-offset: 1px;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.content
+	.checkbox:focus
+	svg.dashed_icon
+	circle {
+	fill: #d9d9d9;
+	stroke-dasharray: 0 0;
 }
 
 main
@@ -854,6 +888,31 @@ main
 	svg {
 	width: 24px;
 	height: 24px;
+	transition: all 0.2s ease-in;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.content
+	.checkbox
+	svg.hidden {
+	display: none;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.content
+	.checkbox
+	svg.dashed_icon:hover
+	circle {
+	fill: #d9d9d9;
+	stroke-dasharray: 0 0;
 }
 
 main
@@ -882,6 +941,25 @@ main
 	font-weight: 600;
 	color: #303030;
 	height: 18px;
+	/* line-height: 18.2px; */
+	display: block;
+	align-items: flex-end;
+	/* border: 1px solid blue; */
+	text-align: left;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.content
+	.main_content
+	.head:focus {
+	outline: var(--border-size_md) solid var(--focus-ring);
+	outline-offset: 2px;
+	width: fit-content;
+	border-radius: 6px;
 }
 
 /* main
@@ -910,7 +988,7 @@ main
 	.content
 	.main_content
 	.text {
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: 500;
 	color: #616161;
 	width: 483.86px;
@@ -926,7 +1004,9 @@ main
 	.text
 	a {
 	/* display: block; */
+	font-weight: 500;
 	color: #005bd3;
+	font-size: 14px;
 }
 
 main
@@ -936,6 +1016,33 @@ main
 	.onboarding_dropdown_items
 	.content
 	.main_content
+	.text
+	a:focus-visible {
+	outline: auto;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.content
+	.main_content
+	.helper {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	cursor: default;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.content
+	.main_content
+	.helper
 	button {
 	border-radius: 6px;
 	padding: 6px 12px;
@@ -950,6 +1057,114 @@ main
 	line-height: 130%; /* 15.6px */
 	box-shadow: 0px 0px 0px 1.5px #333, 0px 1px 0px 1.5px #333,
 		0px 2px 0px 0px #000;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.content
+	.main_content
+	.helper
+	button:hover {
+	background: #2a2a2a;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.content
+	.main_content
+	.helper
+	button:active {
+	background: #2b2b2b;
+	box-shadow: 0px 0px 0px 1.5px #333, 0px 3px 0px 0px #000 inset;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.content
+	.main_content
+	.helper
+	button:focus-visible {
+	outline: var(--border-size_md) solid var(--focus-ring);
+	outline-offset: 2px;
+	box-shadow: none;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.image {
+	width: 156.14px;
+	height: 120px;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.image
+	img {
+	display: inline-block;
+	max-width: 100%;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items:nth-child(2)
+	.btn-group {
+	border: 1px solid red;
+	display: flex;
+	gap: 16px;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items:nth-child(2)
+	.content
+	.btn-group
+	button:nth-child(2) {
+	background-color: transparent;
+	color: #323232;
+	border-radius: 6px;
+
+	box-shadow: none;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items:nth-child(2)
+	.content
+	.btn-group
+	button:nth-child(2):hover {
+	background-color: #e7e7e7;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items:nth-child(2)
+	.content
+	.btn-group
+	button:nth-child(2):active {
+	background-color: #323232;
 }
 
 /* focus states for the dropdowns */

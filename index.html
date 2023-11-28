@@ -335,7 +335,7 @@
 									>
 								</div>
 								<div class="progress">
-									<div><span>1</span>/ 5 completed</div>
+									<div class="prog"><span>1</span> / 5 completed</div>
 									<div id="progress" class="progress_state">
 										<span class="progress_bar" id="progress_bar"></span>
 									</div>
@@ -389,11 +389,12 @@
 						id="onboarding_dropdown"
 						class="onboarding_dropdown"
 					>
-						<li class="onboarding_dropdown_items hidden active">
+						<li class="onboarding_dropdown_items active">
 							<div class="content">
 								<button role="menuitem" class="checkbox">
 									<!-- default spinner icon -->
 									<svg
+										class="dashed_icon"
 										viewBox="0 0 24 24"
 										fill="none"
 										xmlns="http://www.w3.org/2000/svg"
@@ -409,19 +410,482 @@
 											stroke-dasharray="5 5"
 										/>
 									</svg>
+									<!-- spinner icon -->
+									<svg
+										class="spinner_icon hidden"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M11.9996 2C13.9774 2 15.9108 2.58649 17.5553 3.6853C19.1998 4.78412 20.4816 6.3459 21.2384 8.17316C21.9953 10.0004 22.1933 12.0111 21.8075 13.9509C21.4216 15.8907 20.4692 17.6725 19.0707 19.0711C17.6722 20.4696 15.8903 21.422 13.9505 21.8079C12.0107 22.1937 10.0001 21.9957 8.1728 21.2388C6.34554 20.4819 4.78375 19.2002 3.68494 17.5557C2.58612 15.9112 1.99963 13.9778 1.99963 12"
+											stroke="#1C181D"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+									<!-- checked icon -->
+									<svg
+										class="checked_icon hidden"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<circle
+											cx="11.9996"
+											cy="12"
+											r="10"
+											fill="#1C181D"
+											stroke="#1C181D"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z"
+											fill="white"
+										/>
+									</svg>
 								</button>
 								<div class="main_content">
-									<div class="head">Customize your online store</div>
-									<div class="text">
-										Choose a theme and add your logo, colors, and images to
-										reflect your brand.
-										<a href="#">Learn more</a>
+									<button
+										id="main_content_head"
+										aria-haspopup="true"
+										aria-expanded="false"
+										aria-controls="main_content_head_dropdown_container"
+										class="head"
+									>
+										Customize your online store
+									</button>
+									<div
+										class="helper"
+										role="menuitem"
+										aria-controls="main_content_head"
+										id="main_content_head_dropdown_container"
+									>
+										<div class="text">
+											Choose a theme and add your logo, colors, and images to
+											reflect your brand.
+											<a
+												role="menuitem"
+												href="https://help.shopify.com/en/manual/intro-to-shopify/initial-setup/setup-business-settings#set-or-change-your-online-store-name-and-legal-business-name"
+												>Learn more</a
+											>
+										</div>
+										<button role="menuitem">Customize theme</button>
 									</div>
-									<button>Customize theme</button>
 								</div>
 							</div>
 							<div class="image">
 								<img src="./customise-store.png" alt="customise_store" />
+							</div>
+						</li>
+
+						<li class="onboarding_dropdown_items hidden">
+							<div class="content">
+								<button role="menuitem" class="checkbox">
+									<!-- default spinner icon -->
+									<svg
+										class="dashed_icon"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<circle
+											cx="12"
+											cy="12"
+											r="10"
+											stroke="#8A8A8A"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-dasharray="5 5"
+										/>
+									</svg>
+									<!-- spinner icon -->
+									<svg
+										class="spinner_icon hidden"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M11.9996 2C13.9774 2 15.9108 2.58649 17.5553 3.6853C19.1998 4.78412 20.4816 6.3459 21.2384 8.17316C21.9953 10.0004 22.1933 12.0111 21.8075 13.9509C21.4216 15.8907 20.4692 17.6725 19.0707 19.0711C17.6722 20.4696 15.8903 21.422 13.9505 21.8079C12.0107 22.1937 10.0001 21.9957 8.1728 21.2388C6.34554 20.4819 4.78375 19.2002 3.68494 17.5557C2.58612 15.9112 1.99963 13.9778 1.99963 12"
+											stroke="#1C181D"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+									<!-- checked icon -->
+									<svg
+										class="checked_icon hidden"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<circle
+											cx="11.9996"
+											cy="12"
+											r="10"
+											fill="#1C181D"
+											stroke="#1C181D"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z"
+											fill="white"
+										/>
+									</svg>
+								</button>
+								<div class="main_content">
+									<button
+										id="main_content_head"
+										aria-haspopup="true"
+										aria-expanded="false"
+										aria-controls="main_content_head_dropdown_container"
+										class="head"
+									>
+										Add your first product
+									</button>
+									<div
+										class="helper"
+										role="menuitem"
+										aria-controls="main_content_head"
+										id="main_content_head_dropdown_container"
+									>
+										<div class="text">
+											Write a description, add photos, and set pricing for the
+											products you plan to sell.
+											<a
+												role="menuitem"
+												href="https://help.shopify.com/en/manual/intro-to-shopify/initial-setup/setup-business-settings#set-or-change-your-online-store-name-and-legal-business-name"
+												>Learn more</a
+											>
+										</div>
+										<div class="btn-group">
+											<button role="menuitem">Add product</button>
+											<button class="import" role="menuitem">
+												Import product
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="image">
+								<img src="./product.png" alt="product image" />
+							</div>
+						</li>
+						<li class="onboarding_dropdown_items hidden">
+							<div class="content">
+								<button role="menuitem" class="checkbox">
+									<!-- default spinner icon -->
+									<svg
+										class="dashed_icon"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<circle
+											cx="12"
+											cy="12"
+											r="10"
+											stroke="#8A8A8A"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-dasharray="5 5"
+										/>
+									</svg>
+									<!-- spinner icon -->
+									<svg
+										class="spinner_icon hidden"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M11.9996 2C13.9774 2 15.9108 2.58649 17.5553 3.6853C19.1998 4.78412 20.4816 6.3459 21.2384 8.17316C21.9953 10.0004 22.1933 12.0111 21.8075 13.9509C21.4216 15.8907 20.4692 17.6725 19.0707 19.0711C17.6722 20.4696 15.8903 21.422 13.9505 21.8079C12.0107 22.1937 10.0001 21.9957 8.1728 21.2388C6.34554 20.4819 4.78375 19.2002 3.68494 17.5557C2.58612 15.9112 1.99963 13.9778 1.99963 12"
+											stroke="#1C181D"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+									<!-- checked icon -->
+									<svg
+										class="checked_icon hidden"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<circle
+											cx="11.9996"
+											cy="12"
+											r="10"
+											fill="#1C181D"
+											stroke="#1C181D"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z"
+											fill="white"
+										/>
+									</svg>
+								</button>
+								<div class="main_content">
+									<button
+										id="main_content_head"
+										aria-haspopup="true"
+										aria-expanded="false"
+										aria-controls="main_content_head_dropdown_container"
+										class="head"
+									>
+										Add a custom domain
+									</button>
+									<div
+										class="helper"
+										role="menuitem"
+										aria-controls="main_content_head"
+										id="main_content_head_dropdown_container"
+									>
+										<div class="text">
+											Your current domain is 222219.myshopify.com but you can
+											add a custom domain to help customers find your online
+											store.
+											<a
+												role="menuitem"
+												href="https://help.shopify.com/en/manual/intro-to-shopify/initial-setup/setup-business-settings#set-or-change-your-online-store-name-and-legal-business-name"
+												>Learn more</a
+											>
+										</div>
+										<button role="menuitem">Add domain</button>
+									</div>
+								</div>
+							</div>
+							<div class="image">
+								<img src="./website.png" alt="wwebsite image" />
+							</div>
+						</li>
+						<li class="onboarding_dropdown_items hidden">
+							<div class="content">
+								<button role="menuitem" class="checkbox">
+									<!-- default spinner icon -->
+									<svg
+										class="dashed_icon"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<circle
+											cx="12"
+											cy="12"
+											r="10"
+											stroke="#8A8A8A"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-dasharray="5 5"
+										/>
+									</svg>
+									<!-- spinner icon -->
+									<svg
+										class="spinner_icon hidden"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M11.9996 2C13.9774 2 15.9108 2.58649 17.5553 3.6853C19.1998 4.78412 20.4816 6.3459 21.2384 8.17316C21.9953 10.0004 22.1933 12.0111 21.8075 13.9509C21.4216 15.8907 20.4692 17.6725 19.0707 19.0711C17.6722 20.4696 15.8903 21.422 13.9505 21.8079C12.0107 22.1937 10.0001 21.9957 8.1728 21.2388C6.34554 20.4819 4.78375 19.2002 3.68494 17.5557C2.58612 15.9112 1.99963 13.9778 1.99963 12"
+											stroke="#1C181D"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+									<!-- checked icon -->
+									<svg
+										class="checked_icon hidden"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<circle
+											cx="11.9996"
+											cy="12"
+											r="10"
+											fill="#1C181D"
+											stroke="#1C181D"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z"
+											fill="white"
+										/>
+									</svg>
+								</button>
+								<div class="main_content">
+									<button
+										id="main_content_head"
+										aria-haspopup="true"
+										aria-expanded="false"
+										aria-controls="main_content_head_dropdown_container"
+										class="head"
+									>
+										Name your store
+									</button>
+									<div
+										class="helper"
+										role="menuitem"
+										aria-controls="main_content_head"
+										id="main_content_head_dropdown_container"
+									>
+										<div class="text">
+											Your temporary store name is currently Davii collections.
+											The store name appears in your admin and your online
+											store.
+											<a
+												role="menuitem"
+												href="https://help.shopify.com/en/manual/intro-to-shopify/initial-setup/setup-business-settings#set-or-change-your-online-store-name-and-legal-business-name"
+												>Learn more</a
+											>
+										</div>
+										<button role="menuitem">Name store</button>
+									</div>
+								</div>
+							</div>
+							<div class="image">
+								<img src="./name-store.png" alt="name-store image" />
+							</div>
+						</li>
+						<li class="onboarding_dropdown_items hidden">
+							<div class="content">
+								<button role="menuitem" class="checkbox">
+									<!-- default spinner icon -->
+									<svg
+										class="dashed_icon"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<circle
+											cx="12"
+											cy="12"
+											r="10"
+											stroke="#8A8A8A"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-dasharray="5 5"
+										/>
+									</svg>
+									<!-- spinner icon -->
+									<svg
+										class="spinner_icon hidden"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M11.9996 2C13.9774 2 15.9108 2.58649 17.5553 3.6853C19.1998 4.78412 20.4816 6.3459 21.2384 8.17316C21.9953 10.0004 22.1933 12.0111 21.8075 13.9509C21.4216 15.8907 20.4692 17.6725 19.0707 19.0711C17.6722 20.4696 15.8903 21.422 13.9505 21.8079C12.0107 22.1937 10.0001 21.9957 8.1728 21.2388C6.34554 20.4819 4.78375 19.2002 3.68494 17.5557C2.58612 15.9112 1.99963 13.9778 1.99963 12"
+											stroke="#1C181D"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+									<!-- checked icon -->
+									<svg
+										class="checked_icon hidden"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<circle
+											cx="11.9996"
+											cy="12"
+											r="10"
+											fill="#1C181D"
+											stroke="#1C181D"
+											stroke-width="2.08333"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z"
+											fill="white"
+										/>
+									</svg>
+								</button>
+								<div class="main_content">
+									<button
+										id="main_content_head"
+										aria-haspopup="true"
+										aria-expanded="false"
+										aria-controls="main_content_head_dropdown_container"
+										class="head"
+									>
+										Set up a payment provider
+									</button>
+									<div
+										class="helper"
+										role="menuitem"
+										aria-controls="main_content_head"
+										id="main_content_head_dropdown_container"
+									>
+										<div class="text">
+											Choose a payment provider to start accepting payments.
+											You’ll need to create an account with the payment provider
+											and set it up with your Shopify store.
+											<a
+												role="menuitem"
+												href="https://help.shopify.com/en/manual/intro-to-shopify/initial-setup/setup-business-settings#set-or-change-your-online-store-name-and-legal-business-name"
+												>Learn more</a
+											>
+										</div>
+										<button role="menuitem">Set up payment</button>
+									</div>
+								</div>
+							</div>
+							<div class="image">
+								<img src="./payment.png" alt="payment image" />
 							</div>
 						</li>
 					</ul>
