@@ -871,11 +871,53 @@ main
 	.onboarding_dropdown
 	.onboarding_dropdown_items
 	.content
-	.checkbox:focus
+	.checkbox:focus-visible
 	svg.dashed_icon
 	circle {
 	fill: #d9d9d9;
 	stroke-dasharray: 0 0;
+}
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes zoom-in {
+	from {
+		transform: scale(0) rotate(270deg);
+		opacity: 0;
+	}
+
+	to {
+		transform: scale(1) rotate(360deg);
+		opacity: 1;
+	}
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.content
+	.checkbox:focus
+	svg.spinner_icon {
+	animation: spin 0.5s linear infinite;
+}
+
+main
+	.main_container
+	.setup_guide
+	.onboarding_dropdown
+	.onboarding_dropdown_items
+	.content
+	.checkbox:focus
+	svg.checked_icon {
+	animation: zoom-in 0.5s linear;
 }
 
 main

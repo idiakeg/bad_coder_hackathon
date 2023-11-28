@@ -208,7 +208,95 @@ function app() {
 		});
 	});
 
-	console.log(onBoardingDropdown);
+	// ====================script to handle animation on check
+	// get the desired elements
+	const checkboxButton = document.querySelectorAll("#checkbox");
+	const markAsDone = "done";
+	const hidden = "hidden";
+
+	function handleDone(
+		item,
+		index,
+		notCompletedCheckbox,
+		loadingCheckbox,
+		completedCheckbox
+	) {
+		const indexNumber = index + 1;
+		notCompletedCheckbox.classList.add(hidden);
+		loadingCheckbox.classList.remove(hidden);
+		setTimeout(() => {
+			loadingCheckbox.classList.add(hidden);
+			completedCheckbox.classList.remove(hidden);
+			// add the mark as done to the button after completion
+			item.classList.add(markAsDone);
+
+			// send focus to the next checkbox on the list
+			if (indexNumber < checkboxButton.length) {
+				checkboxButton.item(indexNumber).focus();
+			} else {
+				checkboxButton.item(0).focus();
+			}
+		}, 500);
+	}
+
+	function handleNotDone(
+		item,
+		notCompletedCheckbox,
+		loadingCheckbox,
+		completedCheckbox
+	) {
+		completedCheckbox.classList.add(hidden);
+		loadingCheckbox.classList.remove(hidden);
+		setTimeout(() => {
+			loadingCheckbox.classList.add(hidden);
+			notCompletedCheckbox.classList.remove(hidden);
+			// add the mark as done to the button after completion
+			item.classList.remove(markAsDone);
+		}, 500);
+	}
+
+	function handleDoneOrNot(
+		item,
+		index,
+		notCompletedCheckbox,
+		loadingCheckbox,
+		completedCheckbox
+	) {
+		const doneOrNot = item.classList.contains(markAsDone);
+		if (doneOrNot) {
+			handleNotDone(
+				item,
+				notCompletedCheckbox,
+				loadingCheckbox,
+				completedCheckbox
+			);
+		} else {
+			handleDone(
+				item,
+				index,
+				notCompletedCheckbox,
+				loadingCheckbox,
+				completedCheckbox
+			);
+		}
+	}
+
+	checkboxButton.forEach((item, index) => {
+		const notCompletedCheckbox = item.querySelector("#dashed_icon");
+		const loadingCheckbox = item.querySelector("#spinner_icon");
+		const completedCheckbox = item.querySelector("#checked_icon");
+
+		// add an event listener to the item
+		item.addEventListener("click", function () {
+			handleDoneOrNot(
+				item,
+				index,
+				notCompletedCheckbox,
+				loadingCheckbox,
+				completedCheckbox
+			);
+		});
+	});
 }
 
 app();
