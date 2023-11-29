@@ -217,7 +217,7 @@ function app() {
 	const amountDone = document.getElementById("amount_done");
 	let NumberOfCompleteditems = [];
 	const checkboxStatus = document.querySelectorAll("#aria_live");
-	console.log(checkboxStatus);
+	// console.log(checkboxStatus);
 
 	function handleDone(
 		item,
@@ -253,16 +253,22 @@ function app() {
 
 	function handleNotDone(
 		item,
+		index,
 		notCompletedCheckbox,
 		loadingCheckbox,
 		completedCheckbox
 	) {
-		completedCheckbox.classList.add(hidden);
-		loadingCheckbox.classList.remove(hidden);
+		item.querySelector("#checked_icon").classList.add("hidden");
+		// completedCheckbox.classList.add(hidden);
+		item.querySelector("#spinner_icon").classList.remove("hidden");
+
+		// loadingCheckbox.classList.remove(hidden);
 		checkboxStatus.item(index).ariaLabel = "Loading, please wait.";
 		setTimeout(() => {
-			loadingCheckbox.classList.add(hidden);
-			notCompletedCheckbox.classList.remove(hidden);
+			// 	loadingCheckbox.classList.add(hidden);
+			item.querySelector("#spinner_icon").classList.add("hidden");
+			// 	notCompletedCheckbox.classList.remove(hidden);
+			item.querySelector("#dashed_icon").classList.remove("hidden");
 			item.ariaLabel = item.ariaLabel.replace("as not done", "as done");
 			item.classList.remove(markAsDone);
 			checkboxStatus.item(index).ariaLabel = "Successful.";
